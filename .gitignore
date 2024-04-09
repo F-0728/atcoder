@@ -1,0 +1,10 @@
+# ACL
+ac-library/
+
+# build files
+*.out
+
+# settings files for local dev
+.DS_Store
+AC.code-workspace
+*.json
