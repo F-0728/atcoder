@@ -3,4 +3,7 @@
 using namespace std;
 using namespace atcoder;
 
-int main() {}
+int main() { 
+
+    return 0;
+}
