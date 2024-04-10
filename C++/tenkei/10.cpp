@@ -3,6 +3,8 @@
 using namespace std;
 using namespace atcoder;
 
+// cumulative sum
+
 int main() {
     int sum1;
     int sum2;
