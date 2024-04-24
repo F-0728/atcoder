@@ -36,3 +36,17 @@ ll power(ll x, ll y) {
     }
     return res;
 }
+
+ll powMod(ll x, ll y, ll MOD) {
+    ll res = 1;
+    while (y > 0) {
+        if (y % 2 == 1) {
+            res *= x;
+            res %= MOD;
+        }
+        x *= x;
+        x %= MOD;
+        y >>= 1;
+    }
+    return res;
+}
