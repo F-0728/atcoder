@@ -50,3 +50,23 @@ ll powMod(ll x, ll y, ll MOD) {
     }
     return res;
 }
+
+ll factors(ll x) {
+    ll f = 0;
+    ll i = 2;
+    while (x > 1) {
+        while (i * i <= x) {
+            if (x % i == 0) {
+                f++;
+                x /= i;
+            } else {
+                i++;
+            }
+        }
+        if (x > 1) {
+            f++;
+            x = 1;
+        }
+    }
+    return f;
+}
