@@ -10,4 +10,7 @@ using ll = long long;
 #define Yes cout << "Yes" << endl;
 #define No cout << "No" << endl;
 
-int main() { return 0; }
+int main() {
+
+    return 0;
+}
