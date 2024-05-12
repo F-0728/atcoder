@@ -70,3 +70,17 @@ ll factors(ll x) {
     }
     return f;
 }
+
+vector<ll> divisors(ll x) {
+    vector<ll> divs;
+    for (ll i = 1; i * i <= x; i++) {
+        if (x % i == 0) {
+            divs.push_back(i);
+            if (i * i != x) {
+                divs.push_back(x / i);
+            }
+        }
+    }
+    sort(divs.begin(), divs.end());
+    return divs;
+}
