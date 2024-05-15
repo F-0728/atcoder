@@ -84,3 +84,19 @@ vector<ll> divisors(ll x) {
     sort(divs.begin(), divs.end());
     return divs;
 }
+
+// 0-nの数について素数かどうかのbool配列を返す
+vector<bool> furui(ll n) {
+    vector<bool> res(n+1, true);
+    res[0] = false;
+    res[1] = false;
+    rep(i, 2) res.push_back(false);
+    for (ll i = 2; i <= n; i++) {
+        if (res[i]) {
+            for (ll j = 2 * i; j <= n; j += i) {
+                res[j] = false;
+            }
+        }   
+    }
+    return res;
+}
