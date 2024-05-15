@@ -85,7 +85,7 @@ vector<ll> divisors(ll x) {
     return divs;
 }
 
-// 0-nの数について素数かどうかのbool配列を返す
+// 0-nの数について素数かどうかのbool配列を返す(篩)
 vector<bool> furui(ll n) {
     vector<bool> res(n+1, true);
     res[0] = false;
@@ -99,4 +99,30 @@ vector<bool> furui(ll n) {
         }   
     }
     return res;
+}
+
+// BFSテンプレ
+void bfs(ll H, ll W, vector<string> s) {
+    queue<vector<ll>> q;
+    vector<vector<bool>> visited(H, vector<bool>(W, false));
+    q.push({0, 0, 1});
+    ll ans = 1e8;
+    while (!q.empty()) {
+        vector<ll> p = q.front();
+        // cout << p[0] << " " << p[1] << " " << p[2] << endl;
+        q.pop();
+        ll r = p[0];
+        ll c = p[1];
+        if (r >= H || c >= W || r < 0 || c < 0) continue;
+        if (s[r][c] == '#') continue;
+        if (visited[r][c]) continue;
+        visited[r][c] = true;
+        if (r == H - 1 && c == W - 1) {
+            ans = min(ans, p[2]);
+        }
+        q.push({r + 1, c, p[2] + 1});
+        q.push({r, c + 1, p[2] + 1});
+        q.push({r - 1, c, p[2] + 1});
+        q.push({r, c - 1, p[2] + 1});
+    }
 }
