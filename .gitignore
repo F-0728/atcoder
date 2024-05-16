@@ -1,6 +1,9 @@
 # ACL
 ac-library/
 
+# other libraries
+euler-tour/
+
 # build files
 *.out
 
