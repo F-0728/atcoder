@@ -12,6 +12,7 @@ using ll = long long;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 #define vll vector<ll>
 #define vvll vector<vector<ll>>
+#define vpll vector<pair<ll, ll>>
 #define Yes cout << "Yes" << endl;
 #define No cout << "No" << endl;
 
