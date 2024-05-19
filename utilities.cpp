@@ -126,3 +126,12 @@ void bfs(ll H, ll W, vector<string> s) {
         q.push({r, c - 1, p[2] + 1});
     }
 }
+
+// 0からxまでのXORの総和
+ll xorSum(ll x) {
+    if (x % 2 == 0) {
+        ll one = (x / 2) % 2;
+        return one ^ x;
+    }
+    return xorSum(x - 1) ^ x;
+}
