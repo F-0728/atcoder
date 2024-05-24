@@ -43,10 +43,4 @@ int main() {
         }
         ans *= comb1[i];
         ans *= comb2[i - 1];
-        cout << ans.val() << endl;
-    }
-    // vector<mint> debug = comb(2000);
-    // cout << debug[1000].val() << endl; 
-
-    return 0;
-}
+      
