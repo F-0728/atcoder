@@ -2,11 +2,19 @@
 #include <cmath>
 #include <iomanip>
 #include <iostream>
+#include <map>
 using namespace std;
 using namespace atcoder;
 
+using mint = modint1000000007;
+// using mint = modint998244353;
 using ll = long long;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
+#define vll vector<ll>
+#define vvll vector<vector<ll>>
+#define vpll vector<pair<ll, ll>>
+#define Yes cout << "Yes" << endl;
+#define No cout << "No" << endl;
 
 string baseNtoM(string &s, int n, int m) {
     if (s == "0") {
@@ -87,7 +95,7 @@ vector<ll> divisors(ll x) {
 
 // 0-nの数について素数かどうかのbool配列を返す(篩)
 vector<bool> furui(ll n) {
-    vector<bool> res(n+1, true);
+    vector<bool> res(n + 1, true);
     res[0] = false;
     res[1] = false;
     rep(i, 2) res.push_back(false);
@@ -96,7 +104,7 @@ vector<bool> furui(ll n) {
             for (ll j = 2 * i; j <= n; j += i) {
                 res[j] = false;
             }
-        }   
+        }
     }
     return res;
 }
@@ -138,15 +146,47 @@ ll xorSum(ll x) {
 
 // combination
 std::vector<std::vector<long long>> comb(int n, int r) {
-  std::vector<std::vector<long long>> v(n + 1,std::vector<long long>(n + 1, 0));
-  for (int i = 0; i < v.size(); i++) {
-    v[i][0] = 1;
-    v[i][i] = 1;
-  }
-  for (int j = 1; j < v.size(); j++) {
-    for (int k = 1; k < j; k++) {
-      v[j][k] = (v[j - 1][k - 1] + v[j - 1][k]);
+    std::vector<std::vector<long long>> v(n + 1,
+                                          std::vector<long long>(n + 1, 0));
+    for (int i = 0; i < v.size(); i++) {
+        v[i][0] = 1;
+        v[i][i] = 1;
     }
-  }
-  return v;
+    for (int j = 1; j < v.size(); j++) {
+        for (int k = 1; k < j; k++) {
+            v[j][k] = (v[j - 1][k - 1] + v[j - 1][k]);
+        }
+    }
+    return v;
 }
+
+// nPr, nCr mod p
+
+const ll MAX = 2000005;
+mint fact[MAX], factInv[MAX], inv[MAX];
+
+void init() {
+    ll MOD = mint::mod();
+    fact[0] = fact[1] = 1;
+    factInv[0] = factInv[1] = 1;
+    inv[1] = 1;
+    for (ll i = 2; i < MAX; i++){
+        fact[i] = fact[i - 1] * i;
+        inv[i] = MOD - inv[MOD%i] * (MOD / i);
+        factInv[i] = factInv[i - 1] * inv[i];
+    }
+}
+
+mint nPr(ll n, ll r){
+    if (n < r) return 0;
+    if (n < 0 || r < 0) return 0;
+    return fact[n] * factInv[n - r];
+}
+
+mint nCr(ll n, ll r){
+    if (n < r) return 0;
+    if (n < 0 || r < 0) return 0;
+    return fact[n] * factInv[r] * factInv[n - r];
+}
+
+// nPr, nCr mod p おわり
