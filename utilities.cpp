@@ -190,3 +190,15 @@ mint nCr(ll n, ll r){
 }
 
 // nPr, nCr mod p おわり
+
+//bit全探索
+vector<vector<ll>> bitSearch;
+rep(i, 1 << 10) {
+    vector<ll> S;
+    rep(bit, 10) {
+        if (i & (1 << bit)) {
+            S.push_back(bit);
+        }
+    }
+    bitSearch.push_back(S);
+}
