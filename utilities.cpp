@@ -202,3 +202,11 @@ rep(i, 1 << 10) {
     }
     bitSearch.push_back(S);
 }
+
+// nCrでnが大きい場合 (O(n)が無理だけどO(r)ならいける場合)
+vector<mint> nCx(r + 1);
+nCx.at(0) = 1;
+rep(i, r) {
+    nCx.at(i + 1) = nCx.at(i) * (N - i) / (i + 1);
+}
+
