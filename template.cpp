@@ -13,8 +13,8 @@ using ll = long long;
 #define vll vector<ll>
 #define vvll vector<vector<ll>>
 #define vpll vector<pair<ll, ll>>
-#define Yes cout << "Yes" << endl;
-#define No cout << "No" << endl;
+#define Yes cout << "Yes" << endl
+#define No cout << "No" << endl
 
 int main() {
 
