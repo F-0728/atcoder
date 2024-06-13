@@ -145,9 +145,8 @@ ll xorSum(ll x) {
 }
 
 // combination
-std::vector<std::vector<long long>> comb(int n, int r) {
-    std::vector<std::vector<long long>> v(n + 1,
-                                          std::vector<long long>(n + 1, 0));
+vvll comb(int n, int r) {
+    vvll v(n + 1, vll(n + 1, 0));
     for (int i = 0; i < v.size(); i++) {
         v[i][0] = 1;
         v[i][i] = 1;
