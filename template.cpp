@@ -19,6 +19,7 @@ const ll INF = 1LL << 60;
 #define vpll vector<pair<ll, ll>>
 #define Yes cout << "Yes" << endl
 #define No cout << "No" << endl
+template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout << e << " "; } cout << endl;}
 
 int main() {
 
