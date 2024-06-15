@@ -24,7 +24,24 @@ template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout 
 int main() {
     ll N, D;
     cin >> N >> D;
-    
+    vpll walls(N);
+    rep(i, N) {
+        ll l, r;
+        cin >> l >> r;
+        walls.at(i) = {r, l};
+    } 
+    sort(walls.begin(), walls.end());
+    ll ans = 0;
+    ll lastPunch = -INF;
+    rep(i, N) {
+        ll r = walls.at(i).first;
+        ll l = walls.at(i).second;
+        if (lastPunch + D - 1 < l) {
+            lastPunch = r;
+            ans++;
+        }
+    }
+    cout << ans << endl;
 
     return 0;
 }
