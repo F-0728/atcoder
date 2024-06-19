@@ -11,6 +11,7 @@ using mint = modint1000000007;
 using ll = long long;
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 #define vll vector<ll>
+#define pll pair<ll, ll>
 #define vvll vector<vector<ll>>
 #define vpll vector<pair<ll, ll>>
 #define Yes cout << "Yes" << endl;
@@ -238,4 +239,22 @@ vector<vector<mint>> matrix_pow(vector<vector<mint>> A, ll n) {
         n >>= 1;
     }
     return res;
+}
+
+void dijkstra(ll s, vector<vpll>& G, vll& dist) {
+    priority_queue<pll, vpll, greater<pll>> pq;
+    pq.push({0, s});
+    while (!pq.empty()) {
+        auto [d, v] = pq.top();
+        pq.pop();
+        if (dist.at(v) < d) {
+            continue;
+        }
+        for (auto [nv, c] : G.at(v)) {
+            if (dist.at(nv) > d + c) {
+                dist.at(nv) = d + c;
+                pq.push({dist.at(nv), nv});
+            }
+        }
+    }
 }
