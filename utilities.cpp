@@ -209,3 +209,33 @@ rep(i, r) {
     nCx.at(i + 1) = nCx.at(i) * (N - i) / (i + 1);
 }
 
+vector<vector<mint>> matrix_mul(vector<vector<mint>> A, vector<vector<mint>> B) {
+    ll N = A.size();
+    ll M = B.size();
+    ll L = B.at(0).size();
+    vector<vector<mint>> res(N, vector<mint>(L, 0));
+    rep(i, N) {
+        rep(j, L) {
+            rep(k, M) {
+                res.at(i).at(j) += A.at(i).at(k) * B.at(k).at(j);
+            }
+        }
+    }
+    return res;
+}
+
+vector<vector<mint>> matrix_pow(vector<vector<mint>> A, ll n) {
+    ll N = A.size();
+    vector<vector<mint>> res(N, vector<mint>(N, 0));
+    rep(i, N) {
+        res.at(i).at(i) = 1;
+    }
+    while (n > 0) {
+        if (n & 1) {
+            res = mul(res, A);
+        }
+        A = mul(A, A);
+        n >>= 1;
+    }
+    return res;
+}
