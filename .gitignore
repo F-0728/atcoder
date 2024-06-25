@@ -2,7 +2,7 @@
 ac-library/
 
 # other libraries
-euler-tour/
+local-library/
 
 # build files
 *.out
