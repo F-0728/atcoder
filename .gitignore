@@ -13,4 +13,4 @@ AC.code-workspace
 *.json
 
 # local test files
-test.cpp
+test.*
