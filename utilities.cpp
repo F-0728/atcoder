@@ -80,6 +80,27 @@ ll factors(ll x) {
     return f;
 }
 
+// 素因数分解
+vll prime_fact(ll x) {
+    vll res;
+    ll i = 2;
+    while (x > 1) {
+        while (i * i <= x) {
+            if (x % i == 0) {
+                res.push_back(i);
+                x /= i;
+            } else {
+                i++;
+            }
+        }
+        if (x > 1) {
+            res.push_back(x);
+            break;
+        }
+    }
+    return res;
+}
+
 vector<ll> divisors(ll x) {
     vector<ll> divs;
     for (ll i = 1; i * i <= x; i++) {
