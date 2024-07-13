@@ -279,3 +279,17 @@ void dijkstra(ll s, vector<vpll>& G, vll& dist) {
         }
     }
 }
+
+// 重複無し組み合わせ ()
+vvll selected;
+vll combination;
+void dfs(int depth, int size, int min, int max) {
+    if (depth == size) {
+        selected.push_back(combination);
+    } else {
+        for (int i = min; i <= max; i++) {
+            combination[depth] = i;
+            dfs(depth + 1, size, i + 1, max);
+        }
+    }
+}
