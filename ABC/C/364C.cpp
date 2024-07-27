@@ -23,4 +23,28 @@ template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout 
 
 int main() {
     ll N, X, Y;
- 
+    cin >> N >> X >> Y;
+    vll sweet(N);
+    vll salty(N);
+    rep(i, N) {
+        cin >> sweet.at(i);
+    }
+    rep(i, N) {
+        cin >> salty.at(i);
+    }
+    sort(sweet.rbegin(), sweet.rend());
+    sort(salty.rbegin(), salty.rend());
+    ll sweetSum = 0;
+    ll saltySum = 0;
+    rep(i, N) {
+        sweetSum += sweet.at(i);
+        saltySum += salty.at(i);
+        if (sweetSum > X || saltySum > Y) {
+            cout << i + 1 << endl;
+            return 0;
+        }
+    }
+    cout << N << endl;
+
+    return 0;
+}

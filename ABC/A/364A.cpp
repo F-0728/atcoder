@@ -23,4 +23,23 @@ template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout 
 
 int main() {
     ll N;
-    cin
+    cin >> N;
+    vector<string> s(N);
+    rep(i, N) {
+        cin >> s[i];
+    }
+    string before = s[0];
+    rep(i, N - 2) {
+        string S = s[i + 1];
+        if (before == "sweet") {
+            if (S == "sweet" && i != N - 2) {
+                No;
+                return 0;
+            }
+        }
+        before = S;
+    }
+    Yes;
+
+    return 0;
+}
