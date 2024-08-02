@@ -293,3 +293,15 @@ void dfs(int depth, int size, int min, int max) {
         }
     }
 }
+
+// LIS
+ll lis(vll& A) {
+    ll N = A.size();
+    vll dp(N + 1, INF);
+    dp.at(0) = 0;
+    rep(i, N) {
+        ll idx = lower_bound(dp.begin(), dp.end(), A.at(i)) - dp.begin();
+        dp.at(idx) = A.at(i);
+    }
+    return lower_bound(dp.begin(), dp.end(), INF) - dp.begin() - 1;
+}
