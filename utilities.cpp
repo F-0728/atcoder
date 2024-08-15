@@ -17,7 +17,7 @@ using ll = long long;
 #define Yes cout << "Yes" << endl;
 #define No cout << "No" << endl;
 
-string baseNtoM(string &s, int n, int m) {
+string baseNtoM(string& s, int n, int m) {
     if (s == "0") {
         return "0";
     }
@@ -191,20 +191,20 @@ void init() {
     fact[0] = fact[1] = 1;
     factInv[0] = factInv[1] = 1;
     inv[1] = 1;
-    for (ll i = 2; i < MAX; i++){
+    for (ll i = 2; i < MAX; i++) {
         fact[i] = fact[i - 1] * i;
-        inv[i] = MOD - inv[MOD%i] * (MOD / i);
+        inv[i] = MOD - inv[MOD % i] * (MOD / i);
         factInv[i] = factInv[i - 1] * inv[i];
     }
 }
 
-mint nPr(ll n, ll r){
+mint nPr(ll n, ll r) {
     if (n < r) return 0;
     if (n < 0 || r < 0) return 0;
     return fact[n] * factInv[n - r];
 }
 
-mint nCr(ll n, ll r){
+mint nCr(ll n, ll r) {
     if (n < r) return 0;
     if (n < 0 || r < 0) return 0;
     return fact[n] * factInv[r] * factInv[n - r];
@@ -212,7 +212,7 @@ mint nCr(ll n, ll r){
 
 // nPr, nCr mod p おわり
 
-//bit全探索
+// bit全探索
 vector<vector<ll>> bitSearch;
 rep(i, 1 << 10) {
     vector<ll> S;
@@ -227,20 +227,17 @@ rep(i, 1 << 10) {
 // nCrでnが大きい場合 (O(n)が無理だけどO(r)ならいける場合)
 vector<mint> nCx(r + 1);
 nCx.at(0) = 1;
-rep(i, r) {
-    nCx.at(i + 1) = nCx.at(i) * (N - i) / (i + 1);
-}
+rep(i, r) { nCx.at(i + 1) = nCx.at(i) * (N - i) / (i + 1); }
 
-vector<vector<mint>> matrix_mul(vector<vector<mint>> A, vector<vector<mint>> B) {
+vector<vector<mint>> matrix_mul(vector<vector<mint>> A,
+                                vector<vector<mint>> B) {
     ll N = A.size();
     ll M = B.size();
     ll L = B.at(0).size();
     vector<vector<mint>> res(N, vector<mint>(L, 0));
     rep(i, N) {
         rep(j, L) {
-            rep(k, M) {
-                res.at(i).at(j) += A.at(i).at(k) * B.at(k).at(j);
-            }
+            rep(k, M) { res.at(i).at(j) += A.at(i).at(k) * B.at(k).at(j); }
         }
     }
     return res;
@@ -249,9 +246,7 @@ vector<vector<mint>> matrix_mul(vector<vector<mint>> A, vector<vector<mint>> B) 
 vector<vector<mint>> matrix_pow(vector<vector<mint>> A, ll n) {
     ll N = A.size();
     vector<vector<mint>> res(N, vector<mint>(N, 0));
-    rep(i, N) {
-        res.at(i).at(i) = 1;
-    }
+    rep(i, N) { res.at(i).at(i) = 1; }
     while (n > 0) {
         if (n & 1) {
             res = mul(res, A);
@@ -304,4 +299,27 @@ ll lis(vll& A) {
         dp.at(idx) = A.at(i);
     }
     return lower_bound(dp.begin(), dp.end(), INF) - dp.begin() - 1;
+}
+
+// Levenshtein distance
+ll levenshtein(string S, string T) {
+    ll N = S.size();
+    ll M = T.size();
+
+    vvll dp(N + 1, vll(M + 1, 0));
+    rep(i, M + 1) { dp.at(0).at(i) = i; }
+    rep(i, N) {
+        dp.at(i + 1).at(0) = i + 1;
+        rep(j, M) {
+            if (S.at(i) == T.at(j)) {
+                dp.at(i + 1).at(j + 1) = dp.at(i).at(j);
+            } else {
+                dp.at(i + 1).at(j + 1) =
+                    min({dp.at(i).at(j), dp.at(i).at(j + 1),
+                         dp.at(i + 1).at(j)}) +
+                    1;
+            }
+        }
+    }
+    return dp.at(N).at(M);
 }
