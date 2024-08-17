@@ -14,3 +14,6 @@ AC.code-workspace
 
 # local test files
 test.*
+
+# on contest
+on-contest/
