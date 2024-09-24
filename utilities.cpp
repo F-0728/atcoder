@@ -120,7 +120,6 @@ vector<bool> furui(ll n) {
     vector<bool> res(n + 1, true);
     res[0] = false;
     res[1] = false;
-    rep(i, 2) res.push_back(false);
     for (ll i = 2; i <= n; i++) {
         if (res[i]) {
             for (ll j = 2 * i; j <= n; j += i) {
