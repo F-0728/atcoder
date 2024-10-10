@@ -10,6 +10,7 @@ using namespace atcoder;
 // using mint = modint1000000007;
 using mint = modint998244353;
 using ll = long long;
+using ld = long double;
 const ll inf = 1 << 30;
 const ll INF = 1LL << 60;
 const vector<pair<ll, ll>> dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
