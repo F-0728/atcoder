@@ -248,9 +248,9 @@ vector<vector<mint>> matrix_pow(vector<vector<mint>> A, ll n) {
     rep(i, N) { res.at(i).at(i) = 1; }
     while (n > 0) {
         if (n & 1) {
-            res = mul(res, A);
+            res = matrix_mul(res, A);
         }
-        A = mul(A, A);
+        A = matrix_mul(A, A);
         n >>= 1;
     }
     return res;
