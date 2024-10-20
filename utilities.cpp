@@ -322,3 +322,13 @@ ll levenshtein(string S, string T) {
     }
     return dp.at(N).at(M);
 }
+
+// 円環上の位置関係(clockwise)
+bool isABetweenBC(ll a, ll b, ll c) {
+    return (a - b) * (b - c) * (c - a) > 0;
+}
+
+// 円環上の距離
+ll distance(ll a, ll b, ll N) {
+    return min(abs(a - b), N - abs(a - b));
+}
