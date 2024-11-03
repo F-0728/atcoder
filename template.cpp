@@ -4,6 +4,7 @@
 #include <iostream>
 #include <map>
 #include <set>
+#include <chrono>
 using namespace std;
 using namespace atcoder;
 
@@ -17,10 +18,12 @@ const vector<pair<ll, ll>> dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 #define rep(i, n) for (ll i = 0; i < (ll)(n); i++)
 #define vll vector<ll>
 #define vld vector<ld>
+#define vbool vector<bool>
 #define vmint vector<mint>
 #define pll pair<ll, ll>
 #define vvll vector<vector<ll>>
 #define vvld vector<vector<ld>>
+#define vvbool vector<vector<bool>>
 #define vvmint vector<vector<mint>>
 #define vpll vector<pair<ll, ll>>
 #define Yes cout << "Yes" << endl
