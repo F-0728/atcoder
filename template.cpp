@@ -5,6 +5,7 @@
 #include <map>
 #include <set>
 #include <chrono>
+#include <bitset>
 using namespace std;
 using namespace atcoder;
 
