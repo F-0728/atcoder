@@ -29,6 +29,12 @@ const vector<pair<ll, ll>> dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 #define Yes cout << "Yes" << endl
 #define No cout << "No" << endl
 ll power(ll x, ll y) {ll res = 1; while(y > 0){if (y % 2 == 1) {res *= x;} x *= x; y >>= 1;}return res;}
+ll opsum(ll a, ll b) { return a + b; }
+ll opmax(ll a, ll b) { return max(a, b); }
+ll opmin(ll a, ll b) { return min(a, b); }
+ll esum() { return 0; }
+ll emax() { return -INF; }
+ll emin() { return INF; }
 template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout << e << " "; } cout << endl;}
 
 int main() {
