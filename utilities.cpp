@@ -81,20 +81,23 @@ ll factors(ll x) {
 }
 
 // 素因数分解
-vll prime_fact(ll x) {
-    vll res;
+vpll prime_fact(ll x) {
+    vpll res;
     ll i = 2;
     while (x > 1) {
         while (i * i <= x) {
-            if (x % i == 0) {
-                res.push_back(i);
+            ll count = 0;
+            while (x % i == 0) {
                 x /= i;
-            } else {
-                i++;
+                count++;
             }
+            if (count > 0) {
+                res.push_back({i, count});
+            }
+            i++;
         }
         if (x > 1) {
-            res.push_back(x);
+            res.push_back({x, 1});
             break;
         }
     }
