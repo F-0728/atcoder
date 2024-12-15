@@ -37,9 +37,9 @@ ll esum() { return 0; }
 ll emax() { return -INF; }
 ll emin() { return INF; }
 template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout << e << " "; } cout << endl;}
-template<typename T> void outvmint(const vector<mint>& v){for(const auto& e : v){ cout << e.val() << " "; } cout << endl;}
+void outvmint(const vector<mint>& v){for(const auto& e : v){ cout << e.val() << " "; } cout << endl;}
 template<typename T> void outvv(const vector<vector<T>>& vv){for(const auto& v : vv){ outv(v); }}
-template<typename T> void outvvmint(const vector<vector<mint>>& vv){for(const auto& v : vv){ outvmint(v); }}
+void outvvmint(const vector<vector<mint>>& vv){for(const auto& v : vv){ outvmint(v); }}
 template<typename T> void outvp(const vector<pair<T, T>>& vp){for(const auto& p : vp){ cout << p.first << " " << p.second << endl; }}
 
 int main() {
