@@ -338,15 +338,15 @@ ll distance(ll a, ll b, ll N) {
 
 // 2次元平面上の直線の交差判定
 bool intersects(pll a, pll b, pll c, pll d) {
-	ll s, t;
-	s = (a.first - b.first) * (c.second - a.second) - (a.second - b.second) * (c.first - a.first);
-	t = (a.first - b.first) * (d.second - a.second) - (a.second - b.second) * (d.first - a.first);
-	if (s * t > 0)
-		return false;
+    ll s, t;
+    s = (a.first - b.first) * (c.second - a.second) - (a.second - b.second) * (c.first - a.first);
+    t = (a.first - b.first) * (d.second - a.second) - (a.second - b.second) * (d.first - a.first);
+    if (s * t > 0)
+        return false;
 
-	s = (c.first - d.first) * (a.second - c.second) - (c.second - d.second) * (a.first - c.first);
-	t = (c.first - d.first) * (b.second - c.second) - (c.second - d.second) * (b.first - c.first);
-	if (s * t > 0)
-		return false;
-	return true;
+    s = (c.first - d.first) * (a.second - c.second) - (c.second - d.second) * (a.first - c.first);
+    t = (c.first - d.first) * (b.second - c.second) - (c.second - d.second) * (b.first - c.first);
+    if (s * t > 0)
+        return false;
+    return true;
 }
