@@ -328,7 +328,7 @@ ll levenshtein(string S, string T) {
 
 // 円環上の位置関係(clockwise)
 bool isABetweenBC(ll a, ll b, ll c) {
-    return (a - b) * (b - c) * (c - a) > 0;
+    return (a - b) * (b - c) * (c - a) < 0;
 }
 
 // 円環上の距離
