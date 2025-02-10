@@ -36,6 +36,8 @@ ll opmin(ll a, ll b) { return min(a, b); }
 ll esum() { return 0; }
 ll emax() { return -INF; }
 ll emin() { return INF; }
+ll pc(ll x) { return __builtin_popcountll(x); }
+void argsort(vll& v, vll& idx) { iota(idx.begin(), idx.end(), 0); sort(idx.begin(), idx.end(), [&v](ll i1, ll i2) { return v[i1] < v[i2]; }); }
 template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout << e << " "; } cout << endl;}
 void outvmint(const vector<mint>& v){for(const auto& e : v){ cout << e.val() << " "; } cout << endl;}
 template<typename T> void outvv(const vector<vector<T>>& vv){for(const auto& v : vv){ outv(v); }}
