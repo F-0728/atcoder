@@ -27,8 +27,8 @@ const vector<pair<ll, ll>> dir = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 #define vvbool vector<vector<bool>>
 #define vvmint vector<vector<mint>>
 #define vpll vector<pair<ll, ll>>
-#define Yes cout << "Yes" << endl
-#define No cout << "No" << endl
+#define Yes cout << "Yes" << "\n"
+#define No cout << "No" << "\n"
 ll power(ll x, ll y) {ll res = 1; while(y > 0){if (y % 2 == 1) {res *= x;} x *= x; y >>= 1;}return res;}
 ll opsum(ll a, ll b) { return a + b; }
 ll opmax(ll a, ll b) { return max(a, b); }
@@ -38,11 +38,11 @@ ll emax() { return -INF; }
 ll emin() { return INF; }
 ll pc(ll x) { return __builtin_popcountll(x); }
 void argsort(vll& v, vll& idx) { iota(idx.begin(), idx.end(), 0); sort(idx.begin(), idx.end(), [&v](ll i1, ll i2) { return v[i1] < v[i2]; }); }
-template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout << e << " "; } cout << endl;}
-void outvmint(const vector<mint>& v){for(const auto& e : v){ cout << e.val() << " "; } cout << endl;}
+template<typename T> void outv(const vector<T>& v){for(const auto& e : v){ cout << e << " "; } cout << "\n";}
+void outvmint(const vector<mint>& v){for(const auto& e : v){ cout << e.val() << " "; } cout << "\n";}
 template<typename T> void outvv(const vector<vector<T>>& vv){for(const auto& v : vv){ outv(v); }}
 void outvvmint(const vector<vector<mint>>& vv){for(const auto& v : vv){ outvmint(v); }}
-template<typename T> void outvp(const vector<pair<T, T>>& vp){for(const auto& p : vp){ cout << p.first << " " << p.second << endl; }}
+template<typename T> void outvp(const vector<pair<T, T>>& vp){for(const auto& p : vp){ cout << p.first << " " << p.second << "\n"; }}
 
 int main() {
 
